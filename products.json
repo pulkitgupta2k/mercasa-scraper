@@ -1,405 +1,143 @@
 {
-    "FRUTAS": [
-        {
-            "147": "ACELGA"
-        },
-        {
-            "68": "AGUACATES"
-        },
-        {
-            "48": "ALBARICOQUES"
-        },
-        {
-            "143": "CAQUI"
-        },
-        {
-            "83": "CASTA\u00d1AS"
-        },
-        {
-            "49": "CEREZAS"
-        },
-        {
-            "1": "CHIRIMOYAS"
-        },
-        {
-            "36": "CIRUELAS"
-        },
-        {
-            "50": "FRESONES"
-        },
-        {
-            "37": "HIGOS"
-        },
-        {
-            "140": "KIWI"
-        },
-        {
-            "2": "LIMONES"
-        },
-        {
-            "3": "MANDARINA CLEMENTINA"
-        },
-        {
-            "87": "MANDARINAS"
-        },
-        {
-            "144": "MANGO"
-        },
-        {
-            "4": "MANZANA GOLDEN"
-        },
-        {
-            "5": "MANZANA ROJA"
-        },
-        {
-            "62": "MANZANA STARKING"
-        },
-        {
-            "77": "MELOCOTONES"
-        },
-        {
-            "51": "MELOCOTONES (ROJOS)"
-        },
-        {
-            "88": "MELOCOTONES AMARILLOS"
-        },
-        {
-            "38": "MELOCOTONES DUROS"
-        },
-        {
-            "39": "MEL\u00d3N PIEL DE SAPO"
-        },
-        {
-            "90": "NARANJA"
-        },
-        {
-            "63": "NARANJA NAVEL"
-        },
-        {
-            "73": "NARANJA NAVEL LATE"
-        },
-        {
-            "6": "NARANJA NAVELINA"
-        },
-        {
-            "91": "NARANJA VALENCIA LATE"
-        },
-        {
-            "54": "NECTARINAS"
-        },
-        {
-            "55": "N\u00cdSPEROS"
-        },
-        {
-            "145": "PAPAYA"
-        },
-        {
-            "7": "PERA BLANQUILLA"
-        },
-        {
-            "70": "PERA ERCOLINI"
-        },
-        {
-            "8": "PERA PASSACRASANA"
-        },
-        {
-            "56": "PERA SANJUANERA"
-        },
-        {
-            "9": "PI\u00d1AS"
-        },
-        {
-            "10": "PL\u00c1TANOS"
-        },
-        {
-            "64": "POMELOS"
-        },
-        {
-            "40": "SAND\u00cdAS"
-        },
-        {
-            "134": "UVA BLANCA"
-        },
-        {
-            "84": "UVA ITALIA"
-        },
-        {
-            "41": "UVA MOSCATEL (ROMANO)"
-        }
-    ],
-    "HORTALIZAS": [
-        {
-            "146": "AJO"
-        },
-        {
-            "11": "ALCACHOFAS"
-        },
-        {
-            "42": "BERENJENAS"
-        },
-        {
-            "148": "BR\u00d3COLI"
-        },
-        {
-            "57": "CALABACINES"
-        },
-        {
-            "150": "CALABAZA"
-        },
-        {
-            "12": "CEBOLLAS"
-        },
-        {
-            "74": "CEBOLLAS (BABOSA)"
-        },
-        {
-            "43": "CEBOLLAS GRANO DE ORO"
-        },
-        {
-            "13": "COLIFLOR"
-        },
-        {
-            "151": "ENDIVIA"
-        },
-        {
-            "136": "ESCAROLA"
-        },
-        {
-            "69": "ESP\u00c1RRAGOS"
-        },
-        {
-            "14": "JUD\u00cdAS VERDES"
-        },
-        {
-            "44": "JUD\u00cdAS VERDES PERONA"
-        },
-        {
-            "15": "LECHUGAS"
-        },
-        {
-            "135": "LOMBARDA"
-        },
-        {
-            "16": "PATATAS CALIDAD"
-        },
-        {
-            "85": "PATATAS COMUNES"
-        },
-        {
-            "58": "PATATAS PRIMOR"
-        },
-        {
-            "45": "PEPINOS"
-        },
-        {
-            "17": "PIMIENTOS VERDES"
-        },
-        {
-            "152": "PUERRO"
-        },
-        {
-            "153": "REPOLLO"
-        },
-        {
-            "18": "TOMATE MADURO"
-        },
-        {
-            "19": "TOMATE VERDE"
-        },
-        {
-            "20": "ZANAHORIAS"
-        }
-    ],
-    "PESCADO FRESCO": [
-        {
-            "170": "ABADEJO"
-        },
-        {
-            "154": "ALMEJA"
-        },
-        {
-            "60": "AT\u00daN"
-        },
-        {
-            "22": "BACALADILLA"
-        },
-        {
-            "21": "BACALAO"
-        },
-        {
-            "155": "BERBERECHO"
-        },
-        {
-            "79": "BESUGO"
-        },
-        {
-            "162": "BOGAVANTE"
-        },
-        {
-            "71": "BONITO"
-        },
-        {
-            "46": "BOQUER\u00d3N EXTRA"
-        },
-        {
-            "23": "BOQUER\u00d3N ITALIANO"
-        },
-        {
-            "47": "BOQUER\u00d3N NORMAL"
-        },
-        {
-            "163": "BUEY DE MAR"
-        },
-        {
-            "65": "CABALLA"
-        },
-        {
-            "24": "CALAMAR"
-        },
-        {
-            "164": "CENTOLLO"
-        },
-        {
-            "25": "CHIRLA"
-        },
-        {
-            "165": "CIGALA"
-        },
-        {
-            "172": "CONGRIO"
-        },
-        {
-            "156": "COQUINA"
-        },
-        {
-            "168": "DORADA"
-        },
-        {
-            "61": "GALLO"
-        },
-        {
-            "82": "GAMBA"
-        },
-        {
-            "78": "JUREL"
-        },
-        {
-            "137": "LANGOSTINO"
-        },
-        {
-            "169": "LENGUADO"
-        },
-        {
-            "80": "LUBINA"
-        },
-        {
-            "26": "MEJILL\u00d3N"
-        },
-        {
-            "27": "MERLUZA"
-        },
-        {
-            "157": "NAVAJA"
-        },
-        {
-            "166": "N\u00c9CORA"
-        },
-        {
-            "158": "OSTRA"
-        },
-        {
-            "66": "PALOMETA"
-        },
-        {
-            "167": "PERCEBE"
-        },
-        {
-            "28": "PESCADILLA"
-        },
-        {
-            "173": "PEZ ESPADA"
-        },
-        {
-            "161": "PULPO"
-        },
-        {
-            "75": "RAPE"
-        },
-        {
-            "171": "RODABALLO"
-        },
-        {
-            "81": "SALM\u00d3N"
-        },
-        {
-            "174": "SALMONETE"
-        },
-        {
-            "29": "SARDINA"
-        },
-        {
-            "160": "SEPIA"
-        },
-        {
-            "30": "TRUCHA"
-        },
-        {
-            "159": "VIEIRA"
-        }
-    ],
-    "PESCADO CONGELADO": [
-        {
-            "67": "BACALAO"
-        },
-        {
-            "31": "CALAMAR"
-        },
-        {
-            "76": "CIGALA"
-        },
-        {
-            "32": "GAMBA"
-        },
-        {
-            "33": "LANGOSTINO"
-        },
-        {
-            "34": "LENGUADO"
-        },
-        {
-            "35": "MERLUZA"
-        },
-        {
-            "72": "PESCADILLA"
-        }
-    ],
-    "CARNES": [
-        {
-            "97": "OVINO - CASQUER\u00cdA"
-        },
-        {
-            "96": "OVINO - LECHAL"
-        },
-        {
-            "95": "OVINO - RECENTAL"
-        },
-        {
-            "100": "PORCINO - CASQUER\u00cdA"
-        },
-        {
-            "98": "PORCINO - CERDO BLANCO"
-        },
-        {
-            "99": "PORCINO - COCHINILLO"
-        },
-        {
-            "92": "VACUNO - A\u00d1OJO"
-        },
-        {
-            "94": "VACUNO - CASQUER\u00cdA"
-        },
-        {
-            "93": "VACUNO - TERNERA"
-        }
-    ]
+    "FRUTAS": {
+        "147": "ACELGA",
+        "68": "AGUACATES",
+        "48": "ALBARICOQUES",
+        "143": "CAQUI",
+        "83": "CASTA\u00d1AS",
+        "49": "CEREZAS",
+        "1": "CHIRIMOYAS",
+        "36": "CIRUELAS",
+        "50": "FRESONES",
+        "37": "HIGOS",
+        "140": "KIWI",
+        "2": "LIMONES",
+        "3": "MANDARINA CLEMENTINA",
+        "87": "MANDARINAS",
+        "144": "MANGO",
+        "4": "MANZANA GOLDEN",
+        "5": "MANZANA ROJA",
+        "62": "MANZANA STARKING",
+        "77": "MELOCOTONES",
+        "51": "MELOCOTONES (ROJOS)",
+        "88": "MELOCOTONES AMARILLOS",
+        "38": "MELOCOTONES DUROS",
+        "39": "MEL\u00d3N PIEL DE SAPO",
+        "90": "NARANJA",
+        "63": "NARANJA NAVEL",
+        "73": "NARANJA NAVEL LATE",
+        "6": "NARANJA NAVELINA",
+        "91": "NARANJA VALENCIA LATE",
+        "54": "NECTARINAS",
+        "55": "N\u00cdSPEROS",
+        "145": "PAPAYA",
+        "7": "PERA BLANQUILLA",
+        "70": "PERA ERCOLINI",
+        "8": "PERA PASSACRASANA",
+        "56": "PERA SANJUANERA",
+        "9": "PI\u00d1AS",
+        "10": "PL\u00c1TANOS",
+        "64": "POMELOS",
+        "40": "SAND\u00cdAS",
+        "134": "UVA BLANCA",
+        "84": "UVA ITALIA",
+        "41": "UVA MOSCATEL (ROMANO)"
+    },
+    "HORTALIZAS": {
+        "146": "AJO",
+        "11": "ALCACHOFAS",
+        "42": "BERENJENAS",
+        "148": "BR\u00d3COLI",
+        "57": "CALABACINES",
+        "150": "CALABAZA",
+        "12": "CEBOLLAS",
+        "74": "CEBOLLAS (BABOSA)",
+        "43": "CEBOLLAS GRANO DE ORO",
+        "13": "COLIFLOR",
+        "151": "ENDIVIA",
+        "136": "ESCAROLA",
+        "69": "ESP\u00c1RRAGOS",
+        "14": "JUD\u00cdAS VERDES",
+        "44": "JUD\u00cdAS VERDES PERONA",
+        "15": "LECHUGAS",
+        "135": "LOMBARDA",
+        "16": "PATATAS CALIDAD",
+        "85": "PATATAS COMUNES",
+        "58": "PATATAS PRIMOR",
+        "45": "PEPINOS",
+        "17": "PIMIENTOS VERDES",
+        "152": "PUERRO",
+        "153": "REPOLLO",
+        "18": "TOMATE MADURO",
+        "19": "TOMATE VERDE",
+        "20": "ZANAHORIAS"
+    },
+    "PESCADO FRESCO": {
+        "170": "ABADEJO",
+        "154": "ALMEJA",
+        "60": "AT\u00daN",
+        "22": "BACALADILLA",
+        "21": "BACALAO",
+        "155": "BERBERECHO",
+        "79": "BESUGO",
+        "162": "BOGAVANTE",
+        "71": "BONITO",
+        "46": "BOQUER\u00d3N EXTRA",
+        "23": "BOQUER\u00d3N ITALIANO",
+        "47": "BOQUER\u00d3N NORMAL",
+        "163": "BUEY DE MAR",
+        "65": "CABALLA",
+        "24": "CALAMAR",
+        "164": "CENTOLLO",
+        "25": "CHIRLA",
+        "165": "CIGALA",
+        "172": "CONGRIO",
+        "156": "COQUINA",
+        "168": "DORADA",
+        "61": "GALLO",
+        "82": "GAMBA",
+        "78": "JUREL",
+        "137": "LANGOSTINO",
+        "169": "LENGUADO",
+        "80": "LUBINA",
+        "26": "MEJILL\u00d3N",
+        "27": "MERLUZA",
+        "157": "NAVAJA",
+        "166": "N\u00c9CORA",
+        "158": "OSTRA",
+        "66": "PALOMETA",
+        "167": "PERCEBE",
+        "28": "PESCADILLA",
+        "173": "PEZ ESPADA",
+        "161": "PULPO",
+        "75": "RAPE",
+        "171": "RODABALLO",
+        "81": "SALM\u00d3N",
+        "174": "SALMONETE",
+        "29": "SARDINA",
+        "160": "SEPIA",
+        "30": "TRUCHA",
+        "159": "VIEIRA"
+    },
+    "PESCADO CONGELADO": {
+        "67": "BACALAO",
+        "31": "CALAMAR",
+        "76": "CIGALA",
+        "32": "GAMBA",
+        "33": "LANGOSTINO",
+        "34": "LENGUADO",
+        "35": "MERLUZA",
+        "72": "PESCADILLA"
+    },
+    "CARNES": {
+        "97": "OVINO - CASQUER\u00cdA",
+        "96": "OVINO - LECHAL",
+        "95": "OVINO - RECENTAL",
+        "100": "PORCINO - CASQUER\u00cdA",
+        "98": "PORCINO - CERDO BLANCO",
+        "99": "PORCINO - COCHINILLO",
+        "92": "VACUNO - A\u00d1OJO",
+        "94": "VACUNO - CASQUER\u00cdA",
+        "93": "VACUNO - TERNERA"
+    }
 }
