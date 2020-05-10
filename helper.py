@@ -4,6 +4,13 @@ from pprint import pprint
 import json
 import itertools
 
+def find_between(s, first, last ):
+    try:
+        start = s.index( first ) + len( first )
+        end = s.index( last, start )
+        return s[start:end]
+    except ValueError:
+        return ""
 
 def getHTML(link):
     req = requests.get(link)
@@ -37,3 +44,26 @@ def getProducts():
 
     with open("products.json", "w") as f:
         json.dump(products_dict, f, indent = 4)
+
+
+def getData(product_no):
+    link = "https://www.mercasa.es/red-de-mercas/precios-y-mercados-mayoristas/grafica"
+
+    date_start = "2015-01-01"
+    date_end = "2020-05-10"
+    productos = product_no
+    headers = {'Host' : 'www.mercasa.es', 'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0', 'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Language' : 'en-US,en;q=0.5', 'Accept-Encoding' : 'gzip, deflate', 'Content-Type' : 'application/x-www-form-urlencoded', 'Connection' : 'close', 'Referer' : 'https://www.mercasa.es/red-de-mercas/precios-y-mercados-mayoristas/grafica', 'Upgrade-Insecure-Requests' : '1', 'DNT' : '1'}
+    payload = "mayoristas=1%2C2%2C3%2C4%2C5&productos={}%2C147&media=on&fechaInicio={}&fechaFin={}".format(productos, date_start, date_end)
+    # print(payload)
+    req = requests.post(link, data=payload, headers = headers)
+    html = req.content
+    soup = BeautifulSoup(html,"html.parser")
+    # print(soup)
+    chart = soup.find("div",{"class" : "mychart dentroSeccion"})
+    script = chart.find("script").text.strip()[16:-2]
+    script = find_between(script, "data: [", "]").strip()
+    script = script.replace("fecha", "\"fecha\"")
+    script = eval(script)
+    pprint(script)
+
+# getData(46)
