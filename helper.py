@@ -62,9 +62,40 @@ def getData(product_no):
     # print(script)
     script = find_between(script, "data: [", "]").strip()
     script = script.replace("fecha", "\"fecha\"")
+    script = script.replace("null", "0")
+    # print(script)
     script = eval(script)
     return script
 
+def single_detail(product_no):
+    product_no = str(product_no)
+    with open("product_details.json") as f:
+        products_details = json.load(f)
+
+    with open("products.json") as g:
+        products = json.load(g)
+    heading = ""
+    product_name = ""
+    for h, p in products.items():
+        for no, name in p.items():
+            if no == product_no:
+                heading = h
+                product_name = name
+    print(heading)
+    print(product_name)
+    products_details[heading][product_no] = {}
+    products_details[heading][product_no]['product_name'] = product_name
+    products_prices = getData(product_no)
+    products_details[heading][product_no]['prices'] = {}
+    for products_price in products_prices:
+        products_price =  {k.upper(): v for k, v in products_price.items()}
+        try:
+            products_details[heading][product_no]['prices'][products_price['FECHA']] = products_price[product_name]
+        except Exception as e:
+            pass
+
+    with open('product_details.json', "w") as f:
+        json.dump(products_details, f, indent=4)
 
 def driver():
     with open("products.json") as f:
@@ -85,11 +116,11 @@ def driver():
                     try:
                         products_details[heading][product_no]['prices'][products_price['FECHA']] = products_price[product_name]
                     except Exception as e:
+                        pass
                         # print(e)
-                        products_details[heading][product_no]['prices'][products_price['FECHA']] = ""
+                        # products_details[heading][product_no]['prices'][products_price['FECHA']] = ""
                 # pprint(products_details)
             except:
                 print ("error")
     with open('product_details.json', "w") as f:
         json.dump(products_details, f, indent=4)
-
