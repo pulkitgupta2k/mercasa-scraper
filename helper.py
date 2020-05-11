@@ -5,6 +5,7 @@ import json
 import itertools
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from datetime import date
 
 def append_rows(self, values, value_input_option='RAW'):
     params = {
@@ -60,9 +61,9 @@ def getProducts():
 
 def getData(product_no):
     link = "https://www.mercasa.es/red-de-mercas/precios-y-mercados-mayoristas/grafica"
-
+    today = date.today()
     date_start = "2015-01-01"
-    date_end = "2020-05-10"
+    date_end = today.strftime("%Y-%m-%d")
     productos = product_no
     headers = {'Host' : 'www.mercasa.es', 'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0', 'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Language' : 'en-US,en;q=0.5', 'Accept-Encoding' : 'gzip, deflate', 'Content-Type' : 'application/x-www-form-urlencoded', 'Connection' : 'close', 'Referer' : 'https://www.mercasa.es/red-de-mercas/precios-y-mercados-mayoristas/grafica', 'Upgrade-Insecure-Requests' : '1', 'DNT' : '1'}
     payload = "mayoristas=1%2C2%2C3%2C4%2C5&productos={}&media=on&fechaInicio={}&fechaFin={}".format(productos, date_start, date_end)
