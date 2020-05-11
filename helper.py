@@ -97,6 +97,22 @@ def single_detail(product_no):
     with open('product_details.json', "w") as f:
         json.dump(products_details, f, indent=4)
 
+def generateDates():
+    dates = []
+    with open("product_details.json") as f:
+        products_details = json.load(f)
+    for headings, details in products_details.items():
+        for number, products_detail in details.items():
+            # print(products_detail['prices'])
+            for date, names in products_detail['prices'].items():
+                if date not in dates:
+                    dates.append(date)
+    dates.sort()
+    d = {}
+    d['dates'] = dates
+    with open('dates.json', "w") as f:
+        json.dump(d, f, indent=4)
+
 def driver():
     with open("products.json") as f:
         products_json = json.load(f)
