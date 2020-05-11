@@ -70,7 +70,7 @@ def getData(product_no):
     html = req.content
     soup = BeautifulSoup(html,"html.parser")
     chart = soup.find("div",{"class" : "mychart dentroSeccion"})
-    script = chart.find("script").text.strip()[16:-2]
+    script = str(chart.find("script"))
     script = find_between(script, "data: [", "]").strip()
     script = script.replace("fecha", "\"fecha\"")
     script = script.replace("null", "0")
