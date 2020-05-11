@@ -63,7 +63,6 @@ def getData(product_no):
     script = find_between(script, "data: [", "]").strip()
     script = script.replace("fecha", "\"fecha\"")
     script = eval(script)
-    print(script)
     return script
 
 
@@ -71,10 +70,22 @@ def driver():
     with open("products.json") as f:
         products_json = json.load(f)
     # print(products)
+    products_details = {}
     for heading,products in products_json.items():
+        products_details[heading] = {}
         for product_no, product_name in products.items():
-            print(getData(product_no))
-            print(product_name)
+            products_details[heading][product_no] = {}
+            products_details[heading][product_no]['product_name'] = product_name
+            products_prices = getData(product_no)
+            products_details[heading][product_no]['prices'] = {}
+            for products_price in products_prices:
+                products_price =  {k.upper(): v for k, v in products_price.items()}
+                try:
+                    products_details[heading][product_no]['prices'][products_price['FECHA']] = products_price[product_name]
+                except Exception as e:
+                    # print(e)
+                    products_details[heading][product_no]['prices'][products_price['FECHA']] = ""
+            pprint(products_details)
+    with open('product_details.json', "w") as f:
+        json.dump(products_details, f, indent=4)
 
-
-# getData(46)
