@@ -3,6 +3,20 @@ from bs4 import BeautifulSoup
 from pprint import pprint
 import json
 import itertools
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
+def append_rows(self, values, value_input_option='RAW'):
+    params = {
+            'valueInputOption': value_input_option
+    }
+
+    body = {
+            'majorDimension': 'ROWS',
+            'values': values
+    }
+
+    return self.spreadsheet.values_append(self.title, params, body)
 
 def find_between(s, first, last ):
     try:
@@ -113,6 +127,49 @@ def generateDates():
     with open('dates.json', "w") as f:
         json.dump(d, f, indent=4)
 
+def makeArray():
+    masterArray = []
+    with open("product_details.json") as f:
+        products_details = json.load(f)
+    with open("dates.json") as f:
+        dates = json.load(f)
+
+    dates = dates['dates']
+    dates.insert(0, "")
+    masterArray.append(dates)
+
+    for headings, details in products_details.items():
+        h = [""] * len(dates)
+        h[0] = headings
+        masterArray.append(h)
+        for number, products_detail in details.items():
+            row = [""] * len(dates)
+            row[0] = products_detail['product_name']
+            for date, price in products_detail['prices'].items():
+                i = dates.index(date)
+                row[i] =  price
+            masterArray.append(row)
+        blank_row = [""] * len(dates)
+        masterArray.append(blank_row)
+            # pprint(row)
+    # pprint(masterArray)
+    return masterArray
+
+
+def gsheet_load(array):
+    scope = [
+    'https://www.googleapis.com/auth/drive',
+    'https://www.googleapis.com/auth/drive.file'
+    ]
+    file_name = 'client_key.json'
+    creds = ServiceAccountCredentials.from_json_keyfile_name(file_name,scope)
+    client = gspread.authorize(creds)
+    sheet = client.open('mercasa').sheet1
+    sheet.clear()
+    append_rows(sheet,array)
+    print("MODIFIED")
+
+
 def driver():
     with open("products.json") as f:
         products_json = json.load(f)
@@ -140,3 +197,5 @@ def driver():
                 print ("error")
     with open('product_details.json', "w") as f:
         json.dump(products_details, f, indent=4)
+
+gsheet_load(makeArray())
