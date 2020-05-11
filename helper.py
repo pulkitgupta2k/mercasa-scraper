@@ -66,18 +66,14 @@ def getData(product_no):
     productos = product_no
     headers = {'Host' : 'www.mercasa.es', 'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0', 'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Language' : 'en-US,en;q=0.5', 'Accept-Encoding' : 'gzip, deflate', 'Content-Type' : 'application/x-www-form-urlencoded', 'Connection' : 'close', 'Referer' : 'https://www.mercasa.es/red-de-mercas/precios-y-mercados-mayoristas/grafica', 'Upgrade-Insecure-Requests' : '1', 'DNT' : '1'}
     payload = "mayoristas=1%2C2%2C3%2C4%2C5&productos={}&media=on&fechaInicio={}&fechaFin={}".format(productos, date_start, date_end)
-    # print(payload)
     req = requests.post(link, data=payload, headers = headers)
     html = req.content
     soup = BeautifulSoup(html,"html.parser")
-    # print(soup)
     chart = soup.find("div",{"class" : "mychart dentroSeccion"})
     script = chart.find("script").text.strip()[16:-2]
-    # print(script)
     script = find_between(script, "data: [", "]").strip()
     script = script.replace("fecha", "\"fecha\"")
     script = script.replace("null", "0")
-    # print(script)
     script = eval(script)
     return script
 
@@ -117,7 +113,6 @@ def generateDates():
         products_details = json.load(f)
     for headings, details in products_details.items():
         for number, products_detail in details.items():
-            # print(products_detail['prices'])
             for date, names in products_detail['prices'].items():
                 if date not in dates:
                     dates.append(date)
@@ -151,8 +146,6 @@ def makeArray():
             masterArray.append(row)
         blank_row = [""] * len(dates)
         masterArray.append(blank_row)
-            # pprint(row)
-    # pprint(masterArray)
     return masterArray
 
 
@@ -169,12 +162,11 @@ def gsheet_load(array):
     append_rows(sheet,array)
     print("MODIFIED")
 
-
 def driver():
     with open("products.json") as f:
         products_json = json.load(f)
-    # print(products)
     products_details = {}
+    error_pro_no = []
     for heading,products in products_json.items():
         products_details[heading] = {}
         for product_no, product_name in products.items():
@@ -190,12 +182,13 @@ def driver():
                         products_details[heading][product_no]['prices'][products_price['FECHA']] = products_price[product_name]
                     except Exception as e:
                         pass
-                        # print(e)
-                        # products_details[heading][product_no]['prices'][products_price['FECHA']] = ""
-                # pprint(products_details)
             except:
+                error_pro_no.append(product_no)
                 print ("error")
     with open('product_details.json', "w") as f:
         json.dump(products_details, f, indent=4)
 
-gsheet_load(makeArray())
+    for e in error_pro_no:
+        single_detail(e)
+    generateDates()
+    gsheet_load(makeArray())
