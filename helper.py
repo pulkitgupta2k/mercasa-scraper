@@ -158,7 +158,7 @@ def gsheet_load(array):
     file_name = 'client_key.json'
     creds = ServiceAccountCredentials.from_json_keyfile_name(file_name,scope)
     client = gspread.authorize(creds)
-    sheet = client.open('mercasa').sheet1
+    sheet = client.open('mercasa_').sheet1
     sheet.clear()
     append_rows(sheet,array)
     print("MODIFIED")
